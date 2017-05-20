@@ -31,4 +31,16 @@ public class PlayerBehaviourScript : MonoBehaviour {
 
         // logic
 	}
+    
+    void OnCollisionEnter(Collision collision){
+        var gameObject = collision.gameObject;
+        if(gameObject.tag == "Enemy")
+        {
+            var gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehaviourScript>();
+            gameManager.lives--;
+
+            DestroyObject(gameObject);
+        }
+        
+    }
 }

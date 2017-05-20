@@ -19,6 +19,7 @@ public class EnemyBehaviourScript : MonoBehaviour {
         x = direction * Time.deltaTime * speed;
 
         transform.Translate(new Vector3((float) x, 0.0f, 0.0f), Space.World);
+            
 	}
 
     void OnCollisionEnter(Collision collision){
