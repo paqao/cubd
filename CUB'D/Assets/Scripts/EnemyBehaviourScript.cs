@@ -23,6 +23,9 @@ public class EnemyBehaviourScript : MonoBehaviour {
 	}
 
     void OnCollisionEnter(Collision collision){
-        direction *= -1.0f;
+        if(collision.gameObject.transform.position.y >= transform.position.y)
+        {
+            direction *= -1.0f;
+        }
     }
 }
