@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\Enums.cs" />
      <Compile Include="Assets\Scripts\GameManagerBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\TrackingEnemyBehaviourScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
