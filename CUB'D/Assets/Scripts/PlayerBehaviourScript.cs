@@ -10,17 +10,19 @@ public class PlayerBehaviourScript : MonoBehaviour {
     public bool doubleJumpEnabled;
 
     private bool doubleJumpState;
-
+	private bool canMoveVertically = true;
+	private float x = 0, y = 0;
     void Start () {
 		
-
+		x = 0; y = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         // input
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        var y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+		if(canMoveVertically)
+        	y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
         transform.Translate(x, 0, y);
 
@@ -30,5 +32,11 @@ public class PlayerBehaviourScript : MonoBehaviour {
         }
 
         // logic
+		//check camera projection 
+		if (Camera.main.orthographic) { //2D
+			canMoveVertically = false;
+		}
+		else
+			canMoveVertically = true; //3D
 	}
 }
