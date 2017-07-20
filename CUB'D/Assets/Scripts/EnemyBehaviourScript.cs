@@ -20,6 +20,9 @@ public class EnemyBehaviourScript : MonoBehaviour {
 
         transform.Translate(new Vector3((float) x, 0.0f, 0.0f), Space.World);
             
+        if(transform.position.y < -5.0f){
+            GameObject.Destroy(this.gameObject);
+        }
 	}
 
     void OnCollisionEnter(Collision collision){
