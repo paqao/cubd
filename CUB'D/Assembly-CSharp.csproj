@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\EnemyBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Enums.cs" />
      <Compile Include="Assets\Scripts\GameManagerBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\PlatformBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\TrackingEnemyBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\TrackingEnemySingleBehaviourScript.cs" />
