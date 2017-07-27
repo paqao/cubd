@@ -53,16 +53,6 @@ public class PlayerBehaviourScript : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter(Collision col)
-	{
-		if (col.gameObject.tag == "Floor" && timer > 5) {
-			isJumping = false;
-			timer = 0;
-
-
-		}
-	}
-
 	void Jumping ()
 	{
 		if (isJumping) {
@@ -84,13 +74,16 @@ public class PlayerBehaviourScript : MonoBehaviour {
     
     void OnCollisionEnter(Collision collision){
         var gameObject = collision.gameObject;
-        if(gameObject.tag == "Enemy")
-        {
+        if(gameObject.tag == "Enemy") {
             var gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehaviourScript>();
             gameManager.lives--;
 
             DestroyObject(gameObject);
         }
-        
+
+		if (gameObject.tag == "Floor" && timer > 5) {
+			isJumping = false;
+			timer = 0;
+		}
     }
 }
