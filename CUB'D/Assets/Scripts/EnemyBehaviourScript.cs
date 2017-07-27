@@ -28,11 +28,9 @@ public class EnemyBehaviourScript : MonoBehaviour {
     void OnCollisionEnter(Collision collision){
         var gameObject = collision.gameObject;
 
-        if (gameObject.tag == "Floor") {
-            if(collision.transform.position.y > 0.0f)
+        if (gameObject.tag == "Obstacle")
         {
-                direction *= -1.0f;
-            }
+            direction *= -1.0f;
         }
     }
 }

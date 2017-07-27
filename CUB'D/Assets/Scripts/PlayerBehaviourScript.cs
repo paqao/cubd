@@ -81,7 +81,7 @@ public class PlayerBehaviourScript : MonoBehaviour {
             DestroyObject(gameObject);
         }
 
-		if (gameObject.tag == "Floor" && timer > 5) {
+		if ((gameObject.tag == "Floor" || gameObject.tag == "Obstacle") && timer > 5) {
 			isJumping = false;
 			timer = 0;
 		}
