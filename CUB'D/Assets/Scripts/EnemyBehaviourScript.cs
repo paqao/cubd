@@ -7,6 +7,8 @@ public class EnemyBehaviourScript : MonoBehaviour {
     public double direction = 1.0f;
     public double speed = 5.0f;
     public double x = 0.0f;
+
+    private bool calcCollision = true;
     
     // Use this for initialization
 	void Start () {
@@ -25,12 +27,25 @@ public class EnemyBehaviourScript : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter(Collision collision){
+    private void OnCollisionExit(Collision collision)
+    {
         var gameObject = collision.gameObject;
 
-        if (gameObject.tag == "Obstacle")
+        if(gameObject.tag == "Obstacle" && calcCollision)
+        {
+            calcCollision = true;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision){
+
+     
+        var gameObject = collision.gameObject;
+
+        if (gameObject.tag == "Obstacle" && gameObject.transform.position.y >= transform.position.y && calcCollision)
         {
             direction *= -1.0f;
+            calcCollision = false;
         }
     }
 }
