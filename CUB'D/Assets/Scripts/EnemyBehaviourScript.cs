@@ -31,7 +31,7 @@ public class EnemyBehaviourScript : MonoBehaviour {
     {
         var gameObject = collision.gameObject;
 
-        if(gameObject.tag == "Obstacle" && calcCollision)
+        if(gameObject.tag == "Obstacle" && !calcCollision)
         {
             calcCollision = true;
         }
@@ -42,7 +42,7 @@ public class EnemyBehaviourScript : MonoBehaviour {
      
         var gameObject = collision.gameObject;
 
-        if (gameObject.tag == "Obstacle" && gameObject.transform.position.y >= transform.position.y && calcCollision)
+        if (gameObject.tag == "Obstacle" && calcCollision)
         {
             direction *= -1.0f;
             calcCollision = false;
