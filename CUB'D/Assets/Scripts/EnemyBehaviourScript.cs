@@ -9,6 +9,8 @@ public class EnemyBehaviourScript : MonoBehaviour {
     public double x = 0.0f;
 
     private bool calcCollision = true;
+    public bool isMoving = false;
+
     
     // Use this for initialization
 	void Start () {
@@ -17,13 +19,17 @@ public class EnemyBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        x = direction * Time.deltaTime * speed;
 
-        transform.Translate(new Vector3((float) x, 0.0f, 0.0f), Space.World);
-            
-        if(transform.position.y < -5.0f){
-            GameObject.Destroy(this.gameObject);
+        if (isMoving)
+        {
+            x = direction * Time.deltaTime * speed;
+
+            transform.Translate(new Vector3((float)x, 0.0f, 0.0f), Space.World);
+
+            if (transform.position.y < -5.0f)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         }
 	}
 
