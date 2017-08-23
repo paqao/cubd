@@ -78,7 +78,16 @@ public class PlayerBehaviourScript : MonoBehaviour {
             var gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehaviourScript>();
             gameManager.lives--;
 
-            DestroyObject(gameObject);
+            DestroyObject(gameObject.gameObject);
+        }
+
+        if(gameObject.tag == "Coin")
+        {
+
+            var gameManager = GameObject.Find("GameManager").GetComponent<GameManagerBehaviourScript>();
+            gameManager.points += 1;
+
+            DestroyObject(gameObject.gameObject);
         }
 
 		if ((gameObject.tag == "Floor" || gameObject.tag == "Obstacle") && timer > 5) {
